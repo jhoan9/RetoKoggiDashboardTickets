@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard de Tickets</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🛠️ Dashboard de Soporte Técnico</h1>
+
+        <!-- Formulario -->
+        <div id="ticketForm">
+            <h2>➕ Nuevo Ticket</h2>
+            <form id="createTicketForm">
+                <input type="text" id="title" placeholder="Título del ticket" required>
+                <textarea id="description" placeholder="Descripción detallada del problema..." rows="4"
+                    required></textarea>
+                <select id="category" required>
+                    <option value="">Seleccionar categoría</option>
+                    <option value="Técnico">Técnico</option>
+                    <option value="Soporte">Soporte</option>
+                </select>
+                <button type="submit">Enviar Ticket</button>
+            </form>
+        </div>
+
+        <!-- Filtros -->
+        <div id="filters">
+            <select id="filterPriority">
+                <option value="">Todas las prioridades</option>
+                <option value="Alta">Alta prioridad</option>
+                <option value="Media">Prioridad media</option>
+                <option value="Baja">Baja prioridad</option>
+            </select>
+        </div>
+
+        <!-- Tabla -->
+        <table id="ticketsTable">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Resumen IA</th>
+                    <th>Prioridad</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

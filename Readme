@@ -1,0 +1,5 @@
+iniciar aplicacion
+
+node app.js
+
+abrir en el navegador la siguiente ruta http://localhost:3000 o con el puerto que se defina al iniciar la app
