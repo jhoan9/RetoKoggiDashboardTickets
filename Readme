@@ -1,5 +1,23 @@
-iniciar aplicacion
+# 🚀 Iniciar la Aplicación
 
+Sigue estos pasos para levantar el proyecto localmente:
+
+---
+
+## 1. Instalar Dependencias
+
+Ejecuta el siguiente comando en la raíz del proyecto para instalar todas las dependencias necesarias:
+
+
+  npm install
+
+
+## 2. Iniciar la Aplicación
+Usa el siguiente comando para ejecutar la aplicación:
 node app.js
 
-abrir en el navegador la siguiente ruta http://localhost:3000 o con el puerto que se defina al iniciar la app
+
+## 3. Abrir en el Navegador
+Una vez iniciado el servidor, abre tu navegador y accede a:
+http://localhost:3000
+
