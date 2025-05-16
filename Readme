@@ -8,16 +8,17 @@ Sigue estos pasos para levantar el proyecto localmente:
 
 Ejecuta el siguiente comando en la raíz del proyecto para instalar todas las dependencias necesarias:
 
-
-  npm install
+    npm install
 
 
 ## 2. Iniciar la Aplicación
 Usa el siguiente comando para ejecutar la aplicación:
-node app.js
+        
+    node app.js
 
 
 ## 3. Abrir en el Navegador
 Una vez iniciado el servidor, abre tu navegador y accede a:
-http://localhost:3000
+
+    http://localhost:3000
 
