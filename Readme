@@ -22,3 +22,22 @@ Una vez iniciado el servidor, abre tu navegador y accede a:
 
     http://localhost:3000
 
+
+
+Ejemplos de uso
+
+1. Fallos en el Gateway de Pagos
+Categoría: técnico
+Las pasarelas de pago suelen experimentar timeouts o caídas cuando el tráfico supera la capacidad de su infraestructura o hay problemas de red entre el comerciante y el proveedor, provocando transacciones incompletas y pérdidas de ingresos. Estos errores pueden derivarse de configuraciones incorrectas de SSL/TLS, certificados expirados o de APIs desactualizadas que ya no cumplen con los últimos estándares de seguridad. En entornos fintech, la velocidad de respuesta es crítica: un retraso superior a unos pocos segundos suele disparar automáticamente la cancelación de la transacción por parte del cliente o del propio sistema bancario. Además, la falta de mecanismos de reintento y compensación puede agravar el impacto, requiriendo intervención manual para reconciliar pagos y evitar duplicados. Para mitigar este problema, es fundamental implementar circuit breakers, colas de mensajería y monitoreo continuo de latencia y errores HTTP (5xx) en el gateway 
+Cross River
+.
+
+2. Reconcilación Errónea de Transacciones
+Categoría: soporte
+La conciliación contable o de transacciones en sistemas de crédito y pagos distribuidos puede fallar cuando existen incoherencias entre registros de múltiples fuentes (por ejemplo, el core bancario, el proveedor de pago y la contabilidad interna). Estos desajustes suelen deberse a diferencias de formatos (fechas, monedas, decimales), registros duplicados o a latencias en la actualización de bases de datos. Para el equipo de soporte, identificar qué parte de la cadena falló implica revisar logs de integración, exportaciones CSV y tablas de auditoría. Una vez localizado el origen, puede requerirse la generación de reportes manuales, correcciones en la base de datos y comunicación al cliente para aclarar montos y evitar disputas. La falta de alertas tempranas agrava el problema, ya que los desajustes pueden crecer durante días o semanas antes de detectarse 
+Whatfix
+.
+
+3. Fallos de Autenticación y Bloqueo de Cuentas
+Categoría: técnico
+Los sistemas de autenticación (OAuth, SAML, JWT) son el primer punto de contacto con el usuario y su mal funcionamiento, ya sea por tokens expirados, claves desincronizadas o errores en el proveedor de identidad, bloquea el acceso. En fintech, donde la seguridad es prioritaria, políticas de bloqueo tras pocos intentos fallidos pueden frustrar a usuarios legítimos, aumentando las llamadas al servicio de soporte. Asimismo, la rotación de secretos sin una estrategia de despliegue simultáneo en todas las instancias provoca rechazos masivos de login. Resolver estos incidentes implica revisar la configuración del IdP, regenerar certificados y garantizar la consistencia de relojes en servidores (evitando desajustes de tiempo que invalidan JWT). La implementación de flujos de auto-recuperación y notificaciones al usuario reduce la carga de tickets

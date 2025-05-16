@@ -1,12 +1,23 @@
 document.getElementById('createTicketForm').addEventListener('submit', async e => {
   e.preventDefault();
 
-  // Construimos el ticket con la propiedad 'priority' para que coincida con el filtrado/render
-  const newTicket = {
-    titulo: document.getElementById('title').value,
-    priority: document.getElementById('category').value,
-    description: document.getElementById('description').value
-  };
+  const titulo = document.getElementById('title').value.trim();
+  const priority = document.getElementById('category').value;
+  const description = document.getElementById('description').value.trim();
+
+  // Validación: más de 3 palabras en el título
+  if (titulo.split(/\s+/).length <= 3) {
+    showError('El título debe tener al menos 3 palabras.');
+    return;
+  }
+
+  // Validación: más de 100 palabras en la descripción
+  if (description.split(/\s+/).length < 50) {
+    showError('La descripción debe tener al menos 50 palabras.');
+    return;
+  }
+
+  const newTicket = { titulo, priority, description };
 
   try {
     const response = await fetch('http://localhost:3000/api/tickets', {
@@ -16,16 +27,14 @@ document.getElementById('createTicketForm').addEventListener('submit', async e =
     });
     if (!response.ok) throw new Error('Error al enviar ticket');
 
-    // Limpiamos el formulario **antes** de recargar la tabla
     e.target.reset();
-
-    // Recargamos la tabla
     await loadTickets(filterPriority.value);
   } catch (error) {
     console.error('Error:', error);
     showError(error.message);
   }
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
   window.filterPriority = document.getElementById('filterPriority');
